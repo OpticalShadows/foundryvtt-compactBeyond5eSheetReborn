@@ -84,11 +84,10 @@
 		"minimum": "10",
 		"verified": "10.290"
 	},
-	"bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
-	"changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
+	"bugs": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn/issues",
+	"changelog": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn/releases",
 	"download": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn/releases/download/v0.21.0/module.zip",
 	"manifest": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn/releases/latest/download/module.json",
-	"readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
 	"url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet",
 	"flags": {
 		"allowBugReporter": true
