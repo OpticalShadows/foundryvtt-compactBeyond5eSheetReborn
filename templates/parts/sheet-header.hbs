@@ -1,0 +1,115 @@
+{{!-- Sheet Header --}}
+<header class="sheet-header">
+  {{> "systems/dnd5e/templates/actors/parts/actor-warnings.html"}}
+
+  <img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+
+  <section class="header-details">
+      <section class="header-details-sub">
+    <h1><input name="name" type="text" value="{{actor.name}}" placeholder="Character Name"></h1>
+        <span class="non-editable">{{ localize "DND5E.Level" }} {{system.details.level}} {{ classLabels }}</span>
+    </section>
+    {{!-- Character Summary --}}
+    <ul class="inline-summary">
+      <li>
+        <input type="text" name="system.details.race" value="{{system.details.race}}"
+          placeholder="{{ localize 'DND5E.Race' }}" />
+        <span class="hidden">{{#if system.details.race}}{{system.details.race}}{{else}}{{ localize 'DND5E.Race'
+          }}{{/if}}</span>
+      </li>
+
+    </ul>
+
+    {{#unless disableExperience}}
+    <aside class="header-exp flexcol">
+      <div class="xpbar">
+        <span class="bar" style="width: {{system.details.xp.pct}}%"></span>
+      </div>
+      <div class="experience flexrow">
+
+
+        <span class="left-label">{{ localize "DND5E.Level" }} {{system.details.level}}</span>
+
+        <input name="system.details.xp.value" type="text" value="{{system.details.xp.value}}" data-dtype="Number"
+          placeholder="0" />
+        <span class="sep">/</span>
+        <span class="max">{{system.details.xp.max}}</span>
+
+        <span class="right-label">{{ localize "DND5E.Level" }} {{cb5es-add system.details.level 1}}</span>
+      </div>
+    </aside>
+    {{/unless}}
+
+    <div class="header-actions">
+      <a class="rest short-rest">{{ localize 'DND5E.RestS' }}<i class="fas fa-hourglass-half"></i></a>
+      <a class="rest long-rest">{{ localize 'DND5E.RestL' }}<i class="fas fa-hourglass-end"></i></a>
+      <a class="config-button" data-action="hit-dice" title="{{localize 'DND5E.HitDiceConfig'}}">
+        {{localize "DND5E.HitDice"}}: {{system.attributes.hd}}/{{system.details.level}}
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="flexrow health-armor">
+
+      <div class="ac attributable" data-property="attributes.ac">
+        <div class="ac-symbol">
+          {{> (cb5es-path "assets/armor-class.hbs")}}
+        </div>
+        <h4>Armor</h4>
+        <div class="attribute-value">
+          <span>{{system.attributes.ac.value}}</span>
+        </div>
+        <h4>Class</h4>
+        <a class="config-button" data-action="armor" title="{{localize 'DND5E.ArmorConfig'}}"><i
+            class="fas fa-cog"></i></a>
+      </div>
+
+      {{#if (lt system.attributes.hp.value 1)}}
+      <div class="attribute death-save-attribute">
+        <h4 class="attribute-name box-title death-save rollable" data-action="rollDeathSave">
+          {{localize 'DND5E.DeathSave'}}</h4>
+        <div class="attribute-value multiple">
+          <div>
+            <input type="text" name="system.attributes.death.success" data-dtype="Number" placeholder="0"
+              value="{{system.attributes.death.success}}" />
+            <label class="attribute-footer">
+              <i class="fas fa-check"></i></label>
+          </div>
+          <div>
+            <input type="text" name="system.attributes.death.failure" data-dtype="Number" placeholder="0"
+              value="{{system.attributes.death.failure}}" />
+            <label class="attribute-footer">
+              <i class="fas fa-times"></i>
+            </label>
+          </div>
+          <div>
+            <small><input type="text" name="system.attributes.hp.value" data-dtype="Number" placeholder="0"
+                value="{{system.attributes.hp.value}}" /></small>
+            <label class="attribute-footer">
+              <small>{{localize 'DND5E.ActionHeal'}}</small>
+            </label>
+          </div>
+        </div>
+      </div>
+      {{else}}
+      <div class="attribute health">
+        <h4 class="attribute-name box-title">{{ localize "DND5E.HitPoints" }}</h4>
+        <div class="attribute-value multiple">
+          <input name="system.attributes.hp.value" type="text" value="{{system.attributes.hp.value}}" data-dtype="Number"
+            placeholder="10" />
+          <span class="sep"> / </span>
+          <input name="system.attributes.hp.max" type="text" value="{{system.attributes.hp.max}}" data-dtype="Number"
+            placeholder="10" />
+        </div>
+        <footer class="attribute-footer">
+          <input name="system.attributes.hp.temp" type="text" class="temphp" placeholder="+{{ localize 'DND5E.Temp' }}"
+            data-dtype="Number" value="{{system.attributes.hp.temp}}" />
+          <input name="system.attributes.hp.tempmax" type="text" class="temphp" placeholder="+{{ localize 'DND5E.Max' }}"
+            data-dtype="Number" value="{{system.attributes.hp.tempmax}}" />
+        </footer>
+      </div>
+      {{/if}}
+    </div>
+  </section>
+</header>
