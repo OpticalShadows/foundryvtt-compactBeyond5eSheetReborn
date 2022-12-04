@@ -5,7 +5,6 @@
 	"title": "Compact DnDBeyond 5e Character Sheet Reborn",
 	"description": "An updated version of the wonderful compact DnDBeyond 5e Character Sheet by Andrew Krigline. A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
 	"version": "0.21.0",
-	"author": "Andrew Krigline (akrigline)",
 	"authors": [
 		{
 			"name": "Andrew Krigline (akragline)",
@@ -88,9 +87,5 @@
 	"changelog": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn/releases",
 	"download": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn/releases/download/v0.21.0/module.zip",
 	"manifest": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn/releases/latest/download/module.json",
-	"url": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn",
-	"flags": {
-		"allowBugReporter": true
-	},
-	"manifestPlusVersion": "1.1.0"
+	"url": "https://github.com/OpticalShadows/foundryvtt-compactBeyond5eSheetReborn"
 }
